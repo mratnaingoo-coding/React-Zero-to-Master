@@ -1,7 +1,13 @@
 #root{
     font-family: 'Inter', sans-serif;
-    color: #333;
-    background-color: #092846;
     margin: 0;
     padding: 0;
+}
+
+body{
+    background: linear-gradient(
+        to left,
+        rgba(7, 21, 82, 1) 0%,
+        rgba(0, 128, 128, 1) 100%
+    );
 }

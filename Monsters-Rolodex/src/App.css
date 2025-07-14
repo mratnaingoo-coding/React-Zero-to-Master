@@ -1,0 +1,14 @@
+.app-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-title{
+    font-size: 72px;
+    color: #0ccac4;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    font-family: "Luckiest Guy", cursive;
+}

@@ -1,5 +1,5 @@
 .general-list-container {
   display: grid;
-  gap: 20px 5px;
+  gap: 20px 20px;
   grid-template-columns: repeat(4, 1fr);
 }

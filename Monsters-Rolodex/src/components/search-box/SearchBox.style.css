@@ -1,0 +1,11 @@
+.searchbox-container {
+-webkit-appearance: none;
+appearance: none;
+  border: 1px solid #0c0c0c;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  line-height: 30px;
+  margin-bottom: 30px;
+
+}
