@@ -1,6 +1,7 @@
 import {React, useState} from 'react'
+import './General.style.css'; // Assuming you have a CSS file for styles
 
-const General = ({name, title, pfimage}) => {
+const General = ({name, email, id}) => {
     const [bgColor, setBgColor] = useState('lightblue')
     const backGround = () => {
         const colors = [bgColor, 'lightgreen', 'coral', '#808d49', 'pink']
@@ -19,23 +20,18 @@ const General = ({name, title, pfimage}) => {
     <div>
         <div style={{
           backgroundColor: bgColor,
-          padding: '15px',
-          borderRadius: '10px',
-          textAlign: 'center',
-          margin: '20px auto',
-          width: '300px',
-          border: `5px solid ${borderColor}`,
-        }}>
+          border: `5px solid ${borderColor}`
+        }}
+        
+        className='card-container'>
           <img 
           style={{
             width: '120px',
             height:'120px',
-            border: '1px solid black',
-            borderRadius: '5%',
           }}
-          src={pfimage} alt="profile" />
-          <h1 >Name: {name}</h1>
-          <h3 >Title: {title}</h3>
+          src={`https://robohash.org/${id}?set=set2`} alt="profile" />
+          <h3 >Name: {name}</h3>
+          <p >Email: {email}</p>
           <button onClick={backGround}>Background Color</button>
           <button onClick={changeBorder} style={{marginLeft: '10px'}}>Border Color</button>
         </div>
