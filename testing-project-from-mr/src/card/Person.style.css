@@ -1,0 +1,18 @@
+.person-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #399977;
+  border-radius: 10px;
+  border: 1px solid #040404 ;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.img-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
