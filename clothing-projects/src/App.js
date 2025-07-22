@@ -1,5 +1,4 @@
-import './Categories.style.scss';
-import CategoryItem from './components/Category-item-components';
+import Directory from './components/directory/Directory.component';
 
 
 function App() {
@@ -33,15 +32,11 @@ function App() {
 
   return (
 
-
-    <div className="categories-container">  
-      {/* Include each category */}
-      {categoriesDir.map((category) => (
-        <CategoryItem key={category.id} category={category} />
-      ))}
+    <>
+    <div className="App">
+      <Directory categoriesDir={categoriesDir} />
     </div>
-
-
+    </>
 
 
 
