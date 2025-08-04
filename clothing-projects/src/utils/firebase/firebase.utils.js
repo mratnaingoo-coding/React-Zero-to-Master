@@ -14,6 +14,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
+//You can use not only the google provider but also other providers like Facebook, Twitter, etc.
+//For more information, refer to the Firebase documentation.
+
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({
   prompt: "select_account"
@@ -21,16 +24,18 @@ provider.setCustomParameters({
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
+
 
 export const db = getFirestore();
 export const creatUserDocFromAuth = async(userAuth) => {
   const userDocRef = doc(db, 'users', userAuth.uid);
 
-  console.log(userDocRef);
+  //console.log(userDocRef);
 
   const userSnapShot = await getDoc(userDocRef);
-  console.log(userSnapShot);
-  console.log(userSnapShot.exists());
+  //console.log(userSnapShot);
+  //console.log(userSnapShot.exists());
 
   if(!userSnapShot.exists()){
     const { displayName , email } = userAuth;
