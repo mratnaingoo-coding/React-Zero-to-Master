@@ -12,6 +12,7 @@ const SignIn = () => {
     try {
       const { user } = await signInWithGooglePopup();
       creatUserDocFromAuth(user);
+      console.log(user);
 
     } catch (error) {
       console.error("Error signing in with Google:", error);
