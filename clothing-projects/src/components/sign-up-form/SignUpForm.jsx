@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import FormInputField from '../form-input/FormInputField';
+
 import { 
     createAuthUserWithEmailAndPassword
-    , creatUserDocFromAuth
+    , createUserDocFromAuth
  } from '../../utils/firebase/firebase.utils';
+import './SignUpFormStyle.scss';
+import ButtonComponent from '../button/ButtonComponent';
 
 const defaultFormFields = {
     displayName: '',
@@ -33,7 +37,7 @@ const SignUpForm = () => {
             
 
             // You can add additional logic here, like creating a user document in Firestore
-            await creatUserDocFromAuth(user, { displayName });
+            await createUserDocFromAuth(user, { displayName });
             resetSubmit(); 
             alert("User created successfully!");
 
@@ -53,51 +57,48 @@ const SignUpForm = () => {
         setFormData({ ...formData, [name]: value });
     };
     return (
-        <div>
-            <h1>Sign Up</h1>
+        <div className='sign-up-container'>
+            <h2>Don't you have an account?</h2>
+            <span>Sign up with Email and Password</span>
             <form onSubmit={handleSubmit}>
-                <label>User Name</label>
-                <input
+                <FormInputField
+                    label="Display Name"
                     type="text"
-                    placeholder="Input your name"
                     required
                     onChange={handleChange}
                     value={displayName}
                     name="displayName"
                 />
                 <br />
-                <label>Email</label>
-                <input
+                <FormInputField
+                    label="Email"
                     type="email"
-                    placeholder="Input your email"
                     required
                     onChange={handleChange}
                     value={email}
                     name="email"
                 />
                 <br />
-                <label>Password</label>
-                <input
+                <FormInputField
+                    label="Password"    
                     type="password"
-                    placeholder="Input your password"
                     required
                     onChange={handleChange}
                     value={password}
                     name="password"
                 />
                 <br />
-                <label>Confirm Password</label>
-                <input
-                    type="password"
-                    placeholder="Input your confirm password"
+                <FormInputField
+                    label="Confirm Password"
+                    type="password"                    
                     required
                     onChange={handleChange}
                     value={confirmPassword}
                     name="confirmPassword"
                 />
-                <button type='submit'>
+                <ButtonComponent type='submit'>
                     Sign Up
-                </button>
+                </ButtonComponent>
             </form>
         </div>
     )
