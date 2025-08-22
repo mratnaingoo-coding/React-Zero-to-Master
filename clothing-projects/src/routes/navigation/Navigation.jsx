@@ -3,25 +3,38 @@ import { Outlet, Link } from "react-router";
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { UserContext } from '../../contexts/user.context';
+import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import './Navigation.scss'; // Assuming you have a Navigation.scss for styles
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const signOutHandler = async() => {
+    await signOutUser();
+    setCurrentUser(null);
+  }
+  
   return (
     <Fragment>
-        <div className="navigation">
-            <Link className='logo-container' to='/'>
-                <Logo className='logo' />
-            
-            </Link>
-            <div className='nav-links-container'>
-                <Link className='nav-link' to='/shop'>Shop</Link>
-                <Link className='nav-link' to='/auth'>Sign In</Link>
-            </div>
+      <div className="navigation">
+        <Link className='logo-container' to='/'>
+          <Logo className='logo' />
+
+        </Link>
+        <div className='nav-links-container'>
+          <Link className='nav-link' to='/shop'>Shop</Link>
+          {
+            currentUser ? 
+            (
+              <span className='nav-link' onClick={signOutHandler}>Sign Out</span>
+            ) : (
+              <Link className='nav-link' to='/auth'>Sign In</Link>
+
+            )
+          }
         </div>
-        <Outlet />
-    
+      </div>
+      <Outlet />
+
     </Fragment>
   )
 }
